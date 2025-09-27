@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegant Women Set</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, beige, #8B5E3C);
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      margin: 20px 0;
+    }
+    .carousel {
+      position: relative;
+      max-width: 400px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+    .carousel img {
+      width: 100%;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .sizes button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #eee;
+      font-weight: bold;
+    }
+    .sizes button.active {
+      background: #8B5E3C;
+      color: white;
+    }
+    .details {
+      margin: 20px;
+      text-align: left;
+      display: inline-block;
+      background: #fff8f0;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .order-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 15px 30px;
+      background: #25D366;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Elegant Women Top and Bottom Set</h1>
+
+  <!-- Carousel -->
+  <div class="carousel">
+    <img src="C:\Users\kaust\Downloads\proproduct1.jpg" class="active" >
+    <img src="C:\Users\kaust\Downloads\proproduct2.jpg">
+    <img src="C:\Users\kaust\Downloads\proproduct3.jpg">
+  </div>
+    <h1>@999rs/-</h1>
+  <!-- Size selection -->
+  <div class="sizes">
+    <button onclick="selectSize('XS')">XS</button>
+    <button onclick="selectSize('S')">S</button>
+    <button onclick="selectSize('M')">M</button>
+    <button onclick="selectSize('L')">L</button>
+  </div>
+
+  <!-- Product details -->
+  <div class="details">
+    <p><b>Name:</b> Classic Elegant Women Top & Bottom Sets</p>
+    <p><b>Top Fabric:</b> Georgette</p>
+    <p><b>Bottom Fabric:</b> Georgette</p>
+    <p><b>Sleeve Length:</b> Sleeveless</p>
+    <p><b>Net Quantity (N):</b> 3</p>
+    <p><b>Country of Origin:</b> India</p>
+  </div>
+
+  <!-- WhatsApp Order Button -->
+  <a id="orderBtn" class="order-btn" href="https://wa.me/918074458508?text=Hey,%20I%20would%20like%20to%20purchase%20the%20Elegant%20women%20top%20and%20bottom%20set." target="_blank">
+    Order Now
+  </a>
+
+  <script>
+    // Carousel script
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".carousel img");
+    setInterval(() => {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }, 3000);
+
+    // Size selection
+    let selectedSize = "";
+    function selectSize(size) {
+      selectedSize = size;
+      document.querySelectorAll(".sizes button").forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
+
+      document.getElementById("orderBtn").href =
+        "https://wa.me/918074458508?text=" +
+        encodeURIComponent("Hey, I would like to purchase the Elegant women top and bottom set in " + size + " size.");
+    }
+  </script>
+
+</body>
+</html>
